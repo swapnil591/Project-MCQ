@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MCQ_Quiz_DBModelStoreContainer" CdmEntityContainer="MCQ_Quiz_DBEntities">
+    <EntitySetMapping Name="tblQuizs">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblQuiz">
+        <MappingFragment StoreEntitySet="tblQuiz">
+          <ScalarProperty Name="QuizId" ColumnName="QuizId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuizChoices">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblQuizChoice">
+        <MappingFragment StoreEntitySet="tblQuizChoice">
+          <ScalarProperty Name="Quiz_Choice_Id" ColumnName="Quiz_Choice_Id" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="IsAnswer" ColumnName="IsAnswer" />
+          <ScalarProperty Name="OptionTitle" ColumnName="OptionTitle" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuizQuestions">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblQuizQuestion">
+        <MappingFragment StoreEntitySet="tblQuizQuestion">
+          <ScalarProperty Name="QuizQuestionId" ColumnName="QuizQuestionId" />
+          <ScalarProperty Name="QuizId_fk" ColumnName="QuizId_fk" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTests">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblTest">
+        <MappingFragment StoreEntitySet="tblTest">
+          <ScalarProperty Name="TestId" ColumnName="TestId" />
+          <ScalarProperty Name="QuizId" ColumnName="QuizId" />
+          <ScalarProperty Name="Test_StatusId" ColumnName="Test_StatusId" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTestAnswers">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblTestAnswer">
+        <MappingFragment StoreEntitySet="tblTestAnswer">
+          <ScalarProperty Name="TestAnswerId" ColumnName="TestAnswerId" />
+          <ScalarProperty Name="TestId" ColumnName="TestId" />
+          <ScalarProperty Name="QuizChoiceId" ColumnName="QuizChoiceId" />
+          <ScalarProperty Name="IsCorrectChoice" ColumnName="IsCorrectChoice" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTestStatus">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblTestStatu">
+        <MappingFragment StoreEntitySet="tblTestStatus">
+          <ScalarProperty Name="Test_StatusId" ColumnName="Test_StatusId" />
+          <ScalarProperty Name="Test_Status_Name" ColumnName="Test_Status_Name" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiIddleName" ColumnName="MiIddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Email_ID" ColumnName="Email_ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserGroups">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblUserGroup">
+        <MappingFragment StoreEntitySet="tblUserGroup">
+          <ScalarProperty Name="UserGrpId" ColumnName="UserGrpId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="QuizId" ColumnName="QuizId" />
+          <ScalarProperty Name="Permission" ColumnName="Permission" />
+          <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
+          <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
