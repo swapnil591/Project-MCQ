@@ -11,7 +11,7 @@ namespace ApplicationLayerMVC.Controllers
 {
     public class AccountController : Controller
     {
-        
+
 
         // GET: Account
         public ActionResult Login()
@@ -22,15 +22,15 @@ namespace ApplicationLayerMVC.Controllers
         [HttpPost]
         public ActionResult Login(UserModel user)
         {
-           // if (ModelState.IsValid)
+            // if (ModelState.IsValid)
             {
-                bool res = UserRepository.login(user);
+                string res = UserRepository.login(user);
 
-                if (res)
-                {
-                    TempData["Result"] = "Welcome -" + user.FirstName + " " + user.LastName;
-                    ViewBag.Result = "Welcome -"+ user.FirstName + " "+ user.LastName;
-                    return RedirectToAction("Index", "Home");
+                string data = "Welcome " + res;
+
+                if (res != "")
+                {                    
+                    return RedirectToAction("Index", "Home", new {  data });
                 }
             }
 
@@ -51,11 +51,20 @@ namespace ApplicationLayerMVC.Controllers
             {
                 int id = UserRepository.Register(user);
 
-                if(id != 0)
+                if (id == -1)
                 {
-                    ViewBag.Result = "User Registered successfully";
-                    return RedirectToAction("Index","Home");
+                    var data = "User Already Registered with this email id";
+                    // ViewBag.Result = "User Already Registered with this email id";
+                    return RedirectToAction("Index", "Home", new { data });
                 }
+
+                else if (id != 0)
+                {
+                    var data = "User Registered successfully... Welcome " + user.FirstName + " " + user.LastName;
+                    // ViewBag.Result = "User Registered successfully";
+                    return RedirectToAction("Index", "Home", new { data });
+                }
+
             }
             ViewBag.Result = "Something Went Wrong";
             return View();

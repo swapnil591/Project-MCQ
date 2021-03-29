@@ -9,8 +9,11 @@ namespace ApplicationLayerMVC.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public ActionResult Index(string data)
         {
+
+            ViewBag.Result = data;
+
             return View();
         }
     }

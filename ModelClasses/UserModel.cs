@@ -17,7 +17,9 @@ namespace ModelClasses
         public string MiIddleName { get; set; }
         [Required]
         public string LastName { get; set; }
-        [Required]
+
+        [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
         public string BirthDate { get; set; }
         [EmailAddress]
         [Required]
