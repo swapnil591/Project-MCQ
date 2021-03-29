@@ -28,6 +28,7 @@ namespace ApplicationLayerMVC.Controllers
 
                 if (res)
                 {
+                    TempData["Result"] = "Welcome -" + user.FirstName + " " + user.LastName;
                     ViewBag.Result = "Welcome -"+ user.FirstName + " "+ user.LastName;
                     return RedirectToAction("Index", "Home");
                 }

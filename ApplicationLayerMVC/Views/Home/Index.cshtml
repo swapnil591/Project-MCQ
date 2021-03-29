@@ -3,7 +3,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Home</h2>
+<section id="hero" class="hero d-flex align-items-center">
 
-<h1>@ViewBag.Result</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex flex-column justify-content-center">
+                <h1>@ViewBag.Result</h1>
+                <h1>@TempData["Result"]</h1>
+            </div>
+           
+        </div>
+    </div>
 
+</section><!-- End Hero -->
