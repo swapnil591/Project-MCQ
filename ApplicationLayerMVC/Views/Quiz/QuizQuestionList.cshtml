@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ModelClasses.QuizQuestionWithChoiceModel>
+
+@{
+    ViewBag.Title = "QuizQuestionList";
+
+
+    int oldQueID = 0;
+    int newQueID = 0;
+    int counter = 1;
+
+}
+
+
+<section id="values" class="values">
+
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                newQueID = @item.QuizQuestionId;
+
+                <div>
+
+                    @if (newQueID != oldQueID)
+                    {
+                    counter = 1;
+                    <h3>Question.  @Html.DisplayFor(modelItem => item.Question)</h3>
+                    }
+
+                    <input type="radio" id="@item.QuizQuestionId" name="gender" value="other">
+                    <label for="other">@item.OptionTitle</label>
+
+                    @*<h4>@counter .   @Html.DisplayFor(modelItem => item.OptionTitle)</h4>*@
+                </div>
+                oldQueID = @item.QuizQuestionId;
+                counter++;
+            }
+        </div>
+
+
+    </div>
+</section>
+
+
+
+
+@*<h2>QuizQuestionList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Question)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.OptionTitle)
+        </th>
+        <th></th>
+    </tr>
+    @{
+        int oldQueID = 0;
+        int newQueID = 0;
+
+    }
+    @foreach (var item in Model)
+            {
+                //var oldQueID = 0;
+                //var newQueID = 0;
+
+                newQueID = @item.QuizQuestionId;
+
+
+        <tr>
+
+
+            @if (newQueID != oldQueID)
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Question)
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionTitle)
+            </td>
+
+        </tr>
+
+        oldQueID = @item.QuizQuestionId;
+    }
+
+</table>*@

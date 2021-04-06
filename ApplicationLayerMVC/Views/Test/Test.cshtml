@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ModelClasses.TestModel>
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TestId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuizId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Test_StatusId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TestId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuizId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Test_StatusId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

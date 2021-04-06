@@ -2,4 +2,3 @@ c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ModelClasses\bin\
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ModelClasses\bin\Debug\ModelClasses.pdb
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ModelClasses\obj\Debug\ModelClasses.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ModelClasses\obj\Debug\ModelClasses.pdb
-c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ModelClasses\obj\Debug\ModelClasses.csprojResolveAssemblyReference.cache
