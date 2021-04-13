@@ -180,6 +180,7 @@
     <Content Include="Content\assets\img\values-1.png" />
     <Content Include="Content\assets\img\values-2.png" />
     <Content Include="Content\assets\img\values-3.png" />
+    <Content Include="Content\assets\img\Vikrant_1.jpg" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\vendor\aos\aos.css" />
     <Content Include="Content\assets\vendor\aos\aos.js" />
@@ -295,6 +296,8 @@
     <Content Include="Views\Quiz\QuizGrid.cshtml" />
     <Content Include="Views\Test\Test.cshtml" />
     <Content Include="Views\Quiz\QuizQuestionList.cshtml" />
+    <Content Include="Views\Account\UserProfile.cshtml" />
+    <Content Include="Views\Quiz\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

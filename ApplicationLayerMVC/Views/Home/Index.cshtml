@@ -1,18 +1,119 @@
-﻿
+﻿@model IEnumerable<ModelClasses.QuizModel>
+
 @{
     ViewBag.Title = "Index";
 }
 
-<section id="hero" class="hero d-flex align-items-center">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 d-flex flex-column justify-content-center">
-                <h1>@ViewBag.Result</h1>
-              
+
+
+
+<main id="main" style="padding: 60px 0;">
+
+    <section id="services" class="services">
+
+        <div class="container" data-aos="fade-up">
+
+            <header class="section-header">
+                <h3>QuizGrid | @Html.ActionLink("Create New", "Create")</h3>
+
+            </header>
+
+            <div class="row gy-4">
+                @foreach (var item in Model)
+            {
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-box blue">
+                            <i class="ri-discuss-line icon"></i>
+                            <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                            <p>@Html.DisplayFor(modelItem => item.Summary)</p>
+                            <a href="@Url.Action("QuizQuestionList","Quiz", new { id =  item.QuizId})" class="read-more"><span>Browse Test</span> <i class="bi bi-arrow-right"></i></a>
+                            @*@Html.ActionLink("Browse Test", "QuizQuestionList", "Quiz")*@
+                        </div>
+                    </div>
+                }
+
             </div>
-           
-        </div>
-    </div>
 
-</section><!-- End Hero -->
+        </div>
+
+    </section><!-- End Services Section -->
+
+
+</main>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Summary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedON)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedON)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedON)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedON)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+    </table>*@

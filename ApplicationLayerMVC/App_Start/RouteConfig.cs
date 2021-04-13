@@ -16,7 +16,7 @@ namespace ApplicationLayerMVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Quiz", action = "QuizGrid", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

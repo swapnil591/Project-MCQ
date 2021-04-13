@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+<main id="main"  style="padding: 60px 0;">
+    <section id="values" class="values">
+
+        <div class="container" data-aos="fade-up">
+
+            @*<header class="section-header">
+                    <h2>Our Values</h2>
+                    <p>Odit est perspiciatis laborum et dicta</p>
+                </header>*@
+
+            <div class="row">
+
+                <div class="col-lg-4">
+                    
+                    <div class="box" data-aos="fade-up" data-aos-delay="200">
+                        <h2>User Profile</h2>
+                        @*<img src="~/Content/assets/img/values-1.png" class="img-fluid" alt="">*@
+                        <img src="~/Content/assets/img/Vikrant_1.jpg" class="img-fluid" alt="" height="400" width="300" />
+                        <h3>@ViewBag.Userdata.FirstName @ViewBag.Userdata.MiIddleName @ViewBag.Userdata.LastName</h3>
+                        <p>@ViewBag.Userdata.Email_ID</p>
+                        <h4>No. Of Quiz - @ViewBag.NoOfQue</h4>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 mt-4 mt-lg-0">
+                    <h2>My Quiz | @Html.ActionLink("Create New", "Create","Quiz")</h2>
+                    @{
+                        foreach (var item in @ViewBag.QuizData)
+                        {
+                            <div class="col-lg-4 mt-4 mt-lg-0">
+                                <div class="box" data-aos="fade-up" data-aos-delay="400">
+                                    <i class="ri-discuss-line icon"></i>
+                                    <h3>@item.Title</h3>
+                                    <p>@item.Summary</p>
+                                    <p>No. Of Question - @ViewBag.NoOfQue </p>
+                                    <p>Created On - @item.CreatedON</p>
+                                </div>
+                            </div>
+                        }
+                    }                    
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>

@@ -10,21 +10,28 @@ namespace DatabaseLayer.RepositoryPattern
     public class UserRepository
     {
         //  [CustomValidation]
-        public static string login(UserModel user)
+        public UserModel login(UserModel user)
         {
             using (var context = new MCQ_Quiz_DBEntities())
             {
-                var data = context.tblUsers.Where(x => x.Email_ID == user.Email_ID && x.Password == user.Password).FirstOrDefault();
+                var data = context.tblUsers.Where(x => x.Email_ID == user.Email_ID && x.Password == user.Password).Select(x => new UserModel
+                {
+                    UserId = x.UserId,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Email_ID = x.Email_ID
+
+                }).FirstOrDefault();
                 if (data != null)
                 {
-                    return data.FirstName + " " + data.LastName;
+                    return data;
                 }
 
-                return "";
+                return data;
             }
         }
 
-        public static int Register(UserModel user)
+        public int Register(UserModel user)
         {
             using (var context = new MCQ_Quiz_DBEntities())
             {
@@ -58,5 +65,32 @@ namespace DatabaseLayer.RepositoryPattern
                 }
             }
         }
+
+
+        public UserModel GetOneUser(int id)
+        {
+            using (var context = new MCQ_Quiz_DBEntities())
+            {
+                var data = context.tblUsers.Where(x => x.UserId == id).Select(x => new UserModel
+                {
+
+                    FirstName = x.FirstName,
+                    MiIddleName = x.MiIddleName,
+                    LastName = x.LastName,
+                    BirthDate = x.BirthDate,
+                    Email_ID = x.Email_ID,
+                    Type = x.Type,
+                    Password = x.Password,
+                    City = x.City,
+                    State = x.State,
+                    Country = x.Country,
+                    IsActive = x.IsActive
+
+                }).FirstOrDefault();
+
+                return data;
+            }
+        }
+
     }
 }

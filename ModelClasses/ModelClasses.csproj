@@ -50,6 +50,7 @@
     <Compile Include="TestModel.cs" />
     <Compile Include="TestAnswerModel.cs" />
     <Compile Include="TestStatusModel.cs" />
+    <Compile Include="UserAndRelatedQuizModel.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="UserGroupModel.cs" />
   </ItemGroup>

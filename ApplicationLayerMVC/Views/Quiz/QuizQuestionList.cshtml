@@ -10,87 +10,91 @@
 
 }
 
+<main id="main" style="padding: 60px 0;">
+    <section id="values" class="values">
 
-<section id="values" class="values">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
 
-    <div class="container" data-aos="fade-up">
-        <div class="row">
-
-            @foreach (var item in Model)
+                @foreach (var item in Model)
             {
                 newQueID = @item.QuizQuestionId;
 
-                <div>
+                    <div>
 
-                    @if (newQueID != oldQueID)
-                    {
-                    counter = 1;
-                    <h3>Question.  @Html.DisplayFor(modelItem => item.Question)</h3>
-                    }
+                        @if (newQueID != oldQueID)
+                        {
 
-                    <input type="radio" id="@item.QuizQuestionId" name="gender" value="other">
-                    <label for="other">@item.OptionTitle</label>
+                            <h3>@counter.  @Html.DisplayFor(modelItem => item.Question).</h3>
+                            counter++;
+                        }
 
-                    @*<h4>@counter .   @Html.DisplayFor(modelItem => item.OptionTitle)</h4>*@
-                </div>
-                oldQueID = @item.QuizQuestionId;
-                counter++;
-            }
+                        <input type="radio" id="@item.Quiz_Choice_Id" name="@item.Question" value="other">
+                        <label for="other">@item.OptionTitle</label>
+
+                        @*<h4>@counter .   @Html.DisplayFor(modelItem => item.OptionTitle)</h4>*@
+                    </div>
+
+                    oldQueID = @item.QuizQuestionId;
+                    <br /><br /><br />
+                }
+
+                
+            </div>
+            <br /><br /><br />
+            <input type="submit" class="btn btn-success" value="Submit" />
         </div>
+    </section>
 
 
-    </div>
-</section>
-
-
-
+</main>
 
 @*<h2>QuizQuestionList</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Question)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.OptionTitle)
-        </th>
-        <th></th>
-    </tr>
-    @{
-        int oldQueID = 0;
-        int newQueID = 0;
-
-    }
-    @foreach (var item in Model)
-            {
-                //var oldQueID = 0;
-                //var newQueID = 0;
-
-                newQueID = @item.QuizQuestionId;
-
-
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
         <tr>
 
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
 
-            @if (newQueID != oldQueID)
-            {
-                <td>
-                    @Html.DisplayFor(modelItem => item.Question)
-                </td>
-            }
-            <td>
-                @Html.DisplayFor(modelItem => item.OptionTitle)
-            </td>
-
+            <th>
+                @Html.DisplayNameFor(model => model.OptionTitle)
+            </th>
+            <th></th>
         </tr>
+        @{
+            int oldQueID = 0;
+            int newQueID = 0;
 
-        oldQueID = @item.QuizQuestionId;
-    }
+        }
+        @foreach (var item in Model)
+                {
+                    //var oldQueID = 0;
+                    //var newQueID = 0;
 
-</table>*@
+                    newQueID = @item.QuizQuestionId;
+
+
+            <tr>
+
+
+                @if (newQueID != oldQueID)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Question)
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionTitle)
+                </td>
+
+            </tr>
+
+            oldQueID = @item.QuizQuestionId;
+        }
+
+    </table>*@

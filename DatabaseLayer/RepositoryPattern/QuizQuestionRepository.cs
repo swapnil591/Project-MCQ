@@ -11,7 +11,7 @@ namespace DatabaseLayer.RepositoryPattern
 {
     public class QuizQuestionRepository
     {
-        public static List<QuizQuestionWithChoiceModel> GetQuestions(int? id)
+        public List<QuizQuestionWithChoiceModel> GetQuestions(int? id)
         {
             using (var context = new MCQ_Quiz_DBEntities())
             {
