@@ -18,6 +18,13 @@ namespace ModelClasses
         public System.DateTime? UpdatedOn { get; set; }
         public int? UpdatedBy { get; set; }
 
+        public string option1 { get; set; }
+        public string option2 { get; set; }
+        public string option3 { get; set; }
+        public string option4 { get; set; }
+        public string Answer { get; set; }
+        
+
         public QuizChoiceModel QuizChoiceModal_obj { get; set; }
     }
 }

@@ -82,6 +82,18 @@ namespace ApplicationLayerMVC.Controllers
         {
             try
             {
+                int id = _quizQuestionRepository.AddQuestion(quizQuestionModel);
+
+                if(id !=0 || id != -1)
+                {
+                    ViewBag.message = "Success..!";
+                }
+                else
+                {
+                    ViewBag.message = "Error Creating Question";
+                }
+
+
                 return View();
             }
             catch (Exception)
