@@ -61,9 +61,33 @@ namespace ApplicationLayerMVC.Controllers
             }
 
 
-            return View();
+            return View();            
+        }
 
-            
+        public ActionResult AddQuestion(int id)
+        {
+            try
+            {
+                ViewBag.QuizID = id;
+                return View();
+            }
+            catch (Exception)
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddQuestion(QuizQuestionModel quizQuestionModel)
+        {
+            try
+            {
+                return View();
+            }
+            catch (Exception)
+            {
+                return View();
+            }
         }
     }
 }

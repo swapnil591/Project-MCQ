@@ -298,6 +298,7 @@
     <Content Include="Views\Quiz\QuizQuestionList.cshtml" />
     <Content Include="Views\Account\UserProfile.cshtml" />
     <Content Include="Views\Quiz\Create.cshtml" />
+    <Content Include="Views\Quiz\AddQuestion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -21,10 +21,11 @@ namespace ModelClasses
         public string Subject { get; set; }
         [Required]
         public System.DateTime? CreatedON { get; set; }
-        
         public int CreatedBy { get; set; }
         public string UpdatedON { get; set; }
         public int? UpdatedBy { get; set; }
         public bool? IsActive { get; set; }
+
+        public int TotalQuestions { get; set; }
     }
 }

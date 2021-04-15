@@ -17,5 +17,7 @@ namespace ModelClasses
         public int CreatedBy { get; set; }
         public System.DateTime? UpdatedOn { get; set; }
         public int? UpdatedBy { get; set; }
+
+        public QuizChoiceModel QuizChoiceModal_obj { get; set; }
     }
 }

@@ -37,10 +37,13 @@ namespace ApplicationLayerMVC.Controllers
 
                     if (res.UserId != 0)
                     {
+                        Session["UserId"] = res.UserId;
                         TempData["UserId"] = res.UserId;
+
+                        Session["UserName"] = res.FirstName + " " + res.LastName;
                         TempData["UserName"] = res.FirstName + " " + res.LastName;
 
-                        TempData.Keep();
+                        TempData.Peek("UserName");
                         TempData.Peek("UserId");
 
                         return RedirectToAction("UserProfile", "Account");
@@ -56,7 +59,7 @@ namespace ApplicationLayerMVC.Controllers
 
         public ActionResult Logout()
         {
-            TempData["UserId"] = null;
+            Session["UserId"] = null;
             return RedirectToAction("Index", "Home");
         }
 
@@ -95,23 +98,19 @@ namespace ApplicationLayerMVC.Controllers
         public ActionResult UserProfile()
         {
             int UserId = 0;
-            if (TempData["UserId"] != null)
+            if (Session["UserId"] != null)
             {
-                UserId = (int)TempData["UserId"];
-
+                UserId = (int)Session["UserId"];
 
                 var data = _userRepository.GetOneUser(UserId);
                 ViewBag.Userdata = data;
 
-                var quizData = _quizRepository.QuizListOfOneUser(UserId);
+                var quizData = _quizRepository.QuizListOfOneUser(UserId);               
 
                 ViewBag.QuizData = quizData;
 
                 ViewBag.NoOfQuiz = quizData.Count;
 
-
-
-                ViewBag.NoOfQue = 2;
                 return View();
             }
             else
