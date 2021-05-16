@@ -42,6 +42,13 @@
     <Property Name="UpdatedOn" Type="datetime" />
     <Property Name="UpdatedBy" Type="int" />
   </EntityType>
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="tblTest">
     <Key>
       <PropertyRef Name="TestId" />
@@ -101,7 +108,7 @@
     <Property Name="UserGrpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserId" Type="int" />
     <Property Name="QuizId" Type="int" />
-    <Property Name="Permission" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleId" Type="int" />
     <Property Name="CreatedON" Type="datetime" />
     <Property Name="UpdatedON" Type="datetime" />
   </EntityType>
@@ -309,6 +316,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tblUserGroup_tblRole">
+    <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+    <End Role="tblUserGroup" Type="Self.tblUserGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="tblUserGroup">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tblUserGroup_tblUser">
     <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
     <End Role="tblUserGroup" Type="Self.tblUserGroup" Multiplicity="*" />
@@ -325,6 +344,7 @@
     <EntitySet Name="tblQuiz" EntityType="Self.tblQuiz" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblQuizChoice" EntityType="Self.tblQuizChoice" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblQuizQuestion" EntityType="Self.tblQuizQuestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRole" EntityType="Self.tblRole" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTest" EntityType="Self.tblTest" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTestAnswer" EntityType="Self.tblTestAnswer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblTestStatus" EntityType="Self.tblTestStatus" Schema="dbo" store:Type="Tables" />
@@ -396,6 +416,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_tblUserGroup_tblQuiz" Association="Self.FK_tblUserGroup_tblQuiz">
       <End Role="tblQuiz" EntitySet="tblQuiz" />
+      <End Role="tblUserGroup" EntitySet="tblUserGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserGroup_tblRole" Association="Self.FK_tblUserGroup_tblRole">
+      <End Role="tblRole" EntitySet="tblRole" />
       <End Role="tblUserGroup" EntitySet="tblUserGroup" />
     </AssociationSet>
     <AssociationSet Name="FK_tblUserGroup_tblUser" Association="Self.FK_tblUserGroup_tblUser">

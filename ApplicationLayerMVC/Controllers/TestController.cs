@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ApplicationLayerMVC.Controllers
 {
+    [Authorize]
     public class TestController : Controller
     {
         // GET: Test

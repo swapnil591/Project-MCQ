@@ -6,17 +6,20 @@ using System.Web.Mvc;
 using ModelClasses;
 using DatabaseLayer;
 using DatabaseLayer.RepositoryPattern;
+using System.Web.Security;
+using DatabaseLayer.Interfaces;
 
 namespace ApplicationLayerMVC.Controllers
 {
+    [AllowAnonymous]
     public class AccountController : Controller
     {
-        UserRepository _userRepository = null;
-        QuizRepository _quizRepository = null;
-        public AccountController()
+        IUserRepository _userRepository = null;
+        IQuizRepository _quizRepository = null;
+        public AccountController(IUserRepository UserRepo, IQuizRepository QuizRepo)
         {
-            _userRepository = new UserRepository();
-            _quizRepository = new QuizRepository();
+            _userRepository = UserRepo;
+            _quizRepository = QuizRepo;
         }
 
 
@@ -34,9 +37,10 @@ namespace ApplicationLayerMVC.Controllers
                 var res = _userRepository.login(user);
                 if (res != null)
                 {
-
                     if (res.UserId != 0)
                     {
+                        FormsAuthentication.SetAuthCookie(user.FirstName + " " + user.LastName, false);
+
                         Session["UserId"] = res.UserId;
                         TempData["UserId"] = res.UserId;
 
@@ -48,7 +52,6 @@ namespace ApplicationLayerMVC.Controllers
 
                         return RedirectToAction("UserProfile", "Account");
                     }
-
                 }
             }
 
@@ -59,8 +62,9 @@ namespace ApplicationLayerMVC.Controllers
 
         public ActionResult Logout()
         {
-            Session["UserId"] = null;
-            return RedirectToAction("Index", "Home");
+            Session["UserName"] = "";
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
         }
 
         public ActionResult Register()
@@ -105,7 +109,7 @@ namespace ApplicationLayerMVC.Controllers
                 var data = _userRepository.GetOneUser(UserId);
                 ViewBag.Userdata = data;
 
-                var quizData = _quizRepository.QuizListOfOneUser(UserId);               
+                var quizData = _quizRepository.QuizListOfOneUser(UserId);
 
                 ViewBag.QuizData = quizData;
 

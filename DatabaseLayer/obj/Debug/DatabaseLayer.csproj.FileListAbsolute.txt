@@ -3,10 +3,10 @@ c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\DatabaseLayer.pdb
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\EntityFramework.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\EntityFramework.SqlServer.dll
-c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\ModelClasses.dll
-c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\ModelClasses.pdb
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\EntityFramework.xml
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\EntityFramework.SqlServer.xml
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\obj\Debug\DatabaseLayer.csprojResolveAssemblyReference.cache
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\obj\Debug\DatabaseLayer.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\DatabaseLayer\obj\Debug\DatabaseLayer.pdb
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\ModelClasses.dll
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\DatabaseLayer\bin\Debug\ModelClasses.pdb

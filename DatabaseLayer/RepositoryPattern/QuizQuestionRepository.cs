@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using DatabaseLayer.RepositoryPattern;
 using ModelClasses;
-
+using DatabaseLayer.Interfaces;
 
 namespace DatabaseLayer.RepositoryPattern
 {
-    public class QuizQuestionRepository
+    public class QuizQuestionRepository : IQuizQuestionRepository
     {
-        public List<QuizQuestionWithChoiceModel> GetQuestions(int? id)
+        public List<QuizQuestionWithChoiceModel> GetQuestions(int id)
         {
             using (var context = new MCQ_Quiz_DBEntities())
             {
@@ -133,6 +133,6 @@ namespace DatabaseLayer.RepositoryPattern
             }
         }
 
-
+      
     }
 }

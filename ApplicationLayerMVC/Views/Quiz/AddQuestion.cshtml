@@ -48,35 +48,35 @@
                     <div class="form-group">
                         <label class="col-md-2">Option 1 : </label>
                         <div class="col-md-10">
-                            <input type="text" name="option1" value=""  required/>                            
+                            <input type="text" name="option1" value="" class = "form-control" style="border-color:darkred;" required/>                            
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2">Option 2 : </label>
                         <div class="col-md-10">
-                            <input type="text" name="option2" value="" required />
+                            <input type="text" name="option2" value="" class = "form-control" style="border-color:darkred;" required />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2">Option 3 : </label>
                         <div class="col-md-10">
-                            <input type="text" name="option3" value="" required />
+                            <input type="text" name="option3" value="" class = "form-control" style="border-color:darkred;"  required />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2">Option 4 : </label>
                         <div class="col-md-10">
-                            <input type="text" name="option4" value="" required />
+                            <input type="text" name="option4" value="" class = "form-control" style="border-color:darkred;"  required />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-2">Answer : </label>
                         <div class="col-md-10">
-                            <input type="text" name="Answer" value="" required />
+                            <input type="text" name="Answer" value="" class = "form-control" style="border-color:darkred;" required />
                         </div>
                     </div>
 
@@ -91,7 +91,11 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })
+                            <select name="IsActive" class = "form-control">
+                                <option value="true" selected="selected">True</option>
+                                <option value="false">False</option>
+                            </select>
+                            @*@Html.EditorFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })*@
                             @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
                         </div>
                     </div>

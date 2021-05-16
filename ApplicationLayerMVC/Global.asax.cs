@@ -10,8 +10,10 @@ namespace ApplicationLayerMVC
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
-        {
+        {            
             AreaRegistration.RegisterAllAreas();
+            UnityConfig.RegisterComponents();
+            GlobalFilters.Filters.Add(new AuthorizeAttribute());
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }

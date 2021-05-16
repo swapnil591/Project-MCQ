@@ -105,12 +105,20 @@
     <EntitySetMapping Name="tblUserGroups">
       <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblUserGroup">
         <MappingFragment StoreEntitySet="tblUserGroup">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
           <ScalarProperty Name="UserGrpId" ColumnName="UserGrpId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="QuizId" ColumnName="QuizId" />
-          <ScalarProperty Name="Permission" ColumnName="Permission" />
           <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
           <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRoles">
+      <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblRole">
+        <MappingFragment StoreEntitySet="tblRole">
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

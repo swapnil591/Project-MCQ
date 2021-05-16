@@ -31,6 +31,8 @@
         <AssociationConnector Association="MCQ_Quiz_DBModel.FK_tblTestStatus_tblUser" ManuallyRouted="false" />
         <AssociationConnector Association="MCQ_Quiz_DBModel.FK_tblTestStatus_tblUser1" ManuallyRouted="false" />
         <AssociationConnector Association="MCQ_Quiz_DBModel.FK_tblUserGroup_tblUser" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MCQ_Quiz_DBModel.tblRole" Width="1.5" PointX="9.875" PointY="4.125" />
+        <AssociationConnector Association="MCQ_Quiz_DBModel.FK_tblUserGroup_tblRole" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

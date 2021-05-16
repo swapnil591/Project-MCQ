@@ -24,7 +24,7 @@
 
                         @if (newQueID != oldQueID)
                         {
-
+                            <br /><br /><br />
                             <h3>@counter.  @Html.DisplayFor(modelItem => item.Question).</h3>
                             counter++;
                         }
@@ -36,7 +36,7 @@
                     </div>
 
                     oldQueID = @item.QuizQuestionId;
-                    <br /><br /><br />
+                    
                 }
 
                 

@@ -33,5 +33,6 @@ namespace DatabaseLayer
         public virtual DbSet<tblTestStatu> tblTestStatus { get; set; }
         public virtual DbSet<tblUser> tblUsers { get; set; }
         public virtual DbSet<tblUserGroup> tblUserGroups { get; set; }
+        public virtual DbSet<tblRole> tblRoles { get; set; }
     }
 }

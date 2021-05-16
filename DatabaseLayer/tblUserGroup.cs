@@ -17,11 +17,12 @@ namespace DatabaseLayer
         public int UserGrpId { get; set; }
         public Nullable<int> UserId { get; set; }
         public Nullable<int> QuizId { get; set; }
-        public string Permission { get; set; }
         public Nullable<System.DateTime> CreatedON { get; set; }
         public Nullable<System.DateTime> UpdatedON { get; set; }
+        public Nullable<int> RoleId { get; set; }
     
         public virtual tblQuiz tblQuiz { get; set; }
         public virtual tblUser tblUser { get; set; }
+        public virtual tblRole tblRole { get; set; }
     }
 }

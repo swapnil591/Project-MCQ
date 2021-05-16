@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ModelClasses;
+using DatabaseLayer.Interfaces;
 
 namespace DatabaseLayer.RepositoryPattern
 {
-    public class QuizRepository
+    public class QuizRepository : IQuizRepository
     {
         public List<QuizModel> QuizList()
         {
@@ -28,7 +29,6 @@ namespace DatabaseLayer.RepositoryPattern
                 }).ToList();
             }
         }
-
 
         public List<QuizModel> QuizListOfOneUser(int id)
         {
@@ -100,9 +100,6 @@ namespace DatabaseLayer.RepositoryPattern
                 return -1;
             }
         }
-
-
-
     }
 }
 

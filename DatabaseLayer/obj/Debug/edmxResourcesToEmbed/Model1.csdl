@@ -135,11 +135,12 @@
     <Property Name="UserGrpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserId" Type="Int32" />
     <Property Name="QuizId" Type="Int32" />
-    <Property Name="Permission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CreatedON" Type="DateTime" Precision="3" />
     <Property Name="UpdatedON" Type="DateTime" Precision="3" />
     <NavigationProperty Name="tblQuiz" Relationship="Self.FK_tblUserGroup_tblQuiz" FromRole="tblUserGroup" ToRole="tblQuiz" />
     <NavigationProperty Name="tblUser" Relationship="Self.FK_tblUserGroup_tblUser" FromRole="tblUserGroup" ToRole="tblUser" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="tblRole" Relationship="MCQ_Quiz_DBModel.FK_tblUserGroup_tblRole" FromRole="tblUserGroup" ToRole="tblRole" />
   </EntityType>
   <Association Name="FK_tblQuiz_tblUser">
     <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
@@ -438,5 +439,30 @@
       <End Role="tblUser" EntitySet="tblUsers" />
       <End Role="tblUserGroup" EntitySet="tblUserGroups" />
     </AssociationSet>
+    <EntitySet Name="tblRoles" EntityType="MCQ_Quiz_DBModel.tblRole" />
+    <AssociationSet Name="FK_tblUserGroup_tblRole" Association="MCQ_Quiz_DBModel.FK_tblUserGroup_tblRole">
+      <End Role="tblRole" EntitySet="tblRoles" />
+      <End Role="tblUserGroup" EntitySet="tblUserGroups" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="tblRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblUserGroups" Relationship="MCQ_Quiz_DBModel.FK_tblUserGroup_tblRole" FromRole="tblRole" ToRole="tblUserGroup" />
+  </EntityType>
+  <Association Name="FK_tblUserGroup_tblRole">
+    <End Type="MCQ_Quiz_DBModel.tblRole" Role="tblRole" Multiplicity="0..1" />
+    <End Type="MCQ_Quiz_DBModel.tblUserGroup" Role="tblUserGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="tblUserGroup">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

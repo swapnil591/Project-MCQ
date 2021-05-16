@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ModelClasses;
+using DatabaseLayer.Interfaces;
 
 namespace DatabaseLayer.RepositoryPattern
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         //  [CustomValidation]
         public UserModel login(UserModel user)
@@ -87,6 +88,31 @@ namespace DatabaseLayer.RepositoryPattern
                     IsActive = x.IsActive
 
                 }).FirstOrDefault();
+
+                return data;
+            }
+        }
+
+        public List<UserModel> GetAllUser()
+        {
+            using (var context = new MCQ_Quiz_DBEntities())
+            {
+                var data = context.tblUsers.Select(x => new UserModel
+                {
+                    UserId = x.UserId,
+                    FirstName = x.FirstName,
+                    MiIddleName = x.MiIddleName,
+                    LastName = x.LastName,
+                    BirthDate = x.BirthDate,
+                    Email_ID = x.Email_ID,
+                    Type = x.Type,
+                    Password = x.Password,
+                    City = x.City,
+                    State = x.State,
+                    Country = x.Country,
+                    IsActive = x.IsActive
+
+                }).ToList();
 
                 return data;
             }

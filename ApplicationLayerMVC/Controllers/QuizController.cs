@@ -6,17 +6,19 @@ using System.Web.Mvc;
 using DatabaseLayer.RepositoryPattern;
 using ModelClasses;
 using DatabaseLayer;
+using DatabaseLayer.Interfaces;
 
 namespace ApplicationLayerMVC.Controllers
 {
+    [Authorize]
     public class QuizController : Controller
     {
-        QuizRepository _quizRepository = null;
-        QuizQuestionRepository _quizQuestionRepository = null;
-        public QuizController()
+        IQuizRepository _quizRepository = null;
+        IQuizQuestionRepository _quizQuestionRepository = null;
+        public QuizController(IQuizQuestionRepository QuizQuestionRepo, IQuizRepository QuizRepo)
         {
-            _quizRepository = new QuizRepository();
-            _quizQuestionRepository = new QuizQuestionRepository();
+            _quizRepository = QuizRepo;
+            _quizQuestionRepository = QuizQuestionRepo;
         }
 
 
@@ -28,7 +30,7 @@ namespace ApplicationLayerMVC.Controllers
         }
 
 
-        public ActionResult QuizQuestionList(int? id)
+        public ActionResult QuizQuestionList(int id)
         {
             var data = _quizQuestionRepository.GetQuestions(id);
             return View(data);
@@ -101,5 +103,13 @@ namespace ApplicationLayerMVC.Controllers
                 return View();
             }
         }
+
+
+        public ActionResult ShowAllQuestions(int id)
+        {
+            return View();
+        }
+
+
     }
 }

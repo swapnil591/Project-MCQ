@@ -4,22 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DatabaseLayer.RepositoryPattern;
+using DatabaseLayer.Interfaces;
 
 namespace ApplicationLayerMVC.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
-        QuizRepository _quizRepository = null;
+        IQuizRepository _quizRepository = null;
 
-        public HomeController()
+        public HomeController(IQuizRepository QuizRepo)
         {
-            _quizRepository = new QuizRepository();
+            _quizRepository = QuizRepo;
         }
 
         // GET: Home
         public ActionResult Index()
         {
-
             var data = _quizRepository.QuizList();
 
             return View(data);

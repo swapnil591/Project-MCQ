@@ -24,7 +24,6 @@ c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerM
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Microsoft.ApplicationInsights.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Microsoft.Web.Infrastructure.dll
-c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\ModelClasses.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\System.Web.Helpers.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\System.Web.Mvc.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\System.Web.Razor.dll
@@ -33,7 +32,6 @@ c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerM
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\System.Web.Webpages.Razor.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\EntityFramework.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\DatabaseLayer.pdb
-c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\ModelClasses.pdb
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Microsoft.AI.DependencyCollector.xml
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Microsoft.AI.ServerTelemetryChannel.xml
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Microsoft.AI.Web.xml
@@ -50,3 +48,12 @@ c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerM
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\obj\Debug\ApplicationLayerMVC.csprojResolveAssemblyReference.cache
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\obj\Debug\ApplicationLayerMVC.dll
 c:\users\prasad\documents\visual studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\obj\Debug\ApplicationLayerMVC.pdb
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\ModelClasses.dll
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\ModelClasses.pdb
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Unity.Abstractions.dll
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Unity.Container.dll
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Unity.Mvc5.dll
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Unity.Abstractions.pdb
+C:\Users\Prasad\Documents\Visual Studio 2015\Projects\MCQ_Quiz\ApplicationLayerMVC\bin\Unity.Container.pdb

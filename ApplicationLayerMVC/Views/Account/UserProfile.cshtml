@@ -20,7 +20,18 @@
                     <div class="box" data-aos="fade-up" data-aos-delay="200">
                         <h2>User Profile</h2>
                         @*<img src="~/Content/assets/img/values-1.png" class="img-fluid" alt="">*@
-                        <img src="~/Content/assets/img/Vikrant_1.jpg" class="img-fluid" alt="" height="400" width="300" />
+                        @{
+                            if ((int)Session["UserID"] == 1002)
+                            {
+                                <img src="C:\Users\Prasad\Desktop\Vikrant Interview\dhanashree.png" alt="Alternate Text" class="img-fluid" height="400" width="300" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/assets/img/Vikrant_1.jpg" class="img-fluid" alt="" height="400" width="300" />
+                            }
+
+                        }
+
                         <h3>@ViewBag.Userdata.FirstName @ViewBag.Userdata.MiIddleName @ViewBag.Userdata.LastName</h3>
                         <p>@ViewBag.Userdata.Email_ID</p>
                         <h4>No. Of Quiz - @ViewBag.NoOfQuiz</h4>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MCQ_Quiz_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MCQ_Quiz_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblQuiz">
           <Key>
             <PropertyRef Name="QuizId" />
@@ -46,6 +46,13 @@
           <Property Name="CreatedBy" Type="int" Nullable="false" />
           <Property Name="UpdatedOn" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="tblRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblTest">
           <Key>
@@ -106,7 +113,7 @@
           <Property Name="UserGrpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" />
           <Property Name="QuizId" Type="int" />
-          <Property Name="Permission" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleId" Type="int" />
           <Property Name="CreatedON" Type="datetime" />
           <Property Name="UpdatedON" Type="datetime" />
         </EntityType>
@@ -314,6 +321,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblUserGroup_tblRole">
+          <End Role="tblRole" Type="Self.tblRole" Multiplicity="0..1" />
+          <End Role="tblUserGroup" Type="Self.tblUserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="tblUserGroup">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblUserGroup_tblUser">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
           <End Role="tblUserGroup" Type="Self.tblUserGroup" Multiplicity="*" />
@@ -330,6 +349,7 @@
           <EntitySet Name="tblQuiz" EntityType="Self.tblQuiz" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblQuizChoice" EntityType="Self.tblQuizChoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblQuizQuestion" EntityType="Self.tblQuizQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRole" EntityType="Self.tblRole" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTest" EntityType="Self.tblTest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTestAnswer" EntityType="Self.tblTestAnswer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblTestStatus" EntityType="Self.tblTestStatus" Schema="dbo" store:Type="Tables" />
@@ -403,13 +423,16 @@
             <End Role="tblQuiz" EntitySet="tblQuiz" />
             <End Role="tblUserGroup" EntitySet="tblUserGroup" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblUserGroup_tblRole" Association="Self.FK_tblUserGroup_tblRole">
+            <End Role="tblRole" EntitySet="tblRole" />
+            <End Role="tblUserGroup" EntitySet="tblUserGroup" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblUserGroup_tblUser" Association="Self.FK_tblUserGroup_tblUser">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblUserGroup" EntitySet="tblUserGroup" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MCQ_Quiz_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -548,11 +571,12 @@
           <Property Name="UserGrpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" />
           <Property Name="QuizId" Type="Int32" />
-          <Property Name="Permission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CreatedON" Type="DateTime" Precision="3" />
           <Property Name="UpdatedON" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblQuiz" Relationship="Self.FK_tblUserGroup_tblQuiz" FromRole="tblUserGroup" ToRole="tblQuiz" />
           <NavigationProperty Name="tblUser" Relationship="Self.FK_tblUserGroup_tblUser" FromRole="tblUserGroup" ToRole="tblUser" />
+          <Property Name="RoleId" Type="Int32" />
+          <NavigationProperty Name="tblRole" Relationship="MCQ_Quiz_DBModel.FK_tblUserGroup_tblRole" FromRole="tblUserGroup" ToRole="tblRole" />
         </EntityType>
         <Association Name="FK_tblQuiz_tblUser">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
@@ -851,7 +875,32 @@
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblUserGroup" EntitySet="tblUserGroups" />
           </AssociationSet>
+          <EntitySet Name="tblRoles" EntityType="MCQ_Quiz_DBModel.tblRole" />
+          <AssociationSet Name="FK_tblUserGroup_tblRole" Association="MCQ_Quiz_DBModel.FK_tblUserGroup_tblRole">
+            <End Role="tblRole" EntitySet="tblRoles" />
+            <End Role="tblUserGroup" EntitySet="tblUserGroups" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tblRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUserGroups" Relationship="MCQ_Quiz_DBModel.FK_tblUserGroup_tblRole" FromRole="tblRole" ToRole="tblUserGroup" />
+        </EntityType>
+        <Association Name="FK_tblUserGroup_tblRole">
+          <End Type="MCQ_Quiz_DBModel.tblRole" Role="tblRole" Multiplicity="0..1" />
+          <End Type="MCQ_Quiz_DBModel.tblUserGroup" Role="tblUserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="tblUserGroup">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -962,12 +1011,20 @@
           <EntitySetMapping Name="tblUserGroups">
             <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblUserGroup">
               <MappingFragment StoreEntitySet="tblUserGroup">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="UserGrpId" ColumnName="UserGrpId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="QuizId" ColumnName="QuizId" />
-                <ScalarProperty Name="Permission" ColumnName="Permission" />
                 <ScalarProperty Name="CreatedON" ColumnName="CreatedON" />
                 <ScalarProperty Name="UpdatedON" ColumnName="UpdatedON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoles">
+            <EntityTypeMapping TypeName="MCQ_Quiz_DBModel.tblRole">
+              <MappingFragment StoreEntitySet="tblRole">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
